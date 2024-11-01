@@ -24,9 +24,11 @@ export default function Status_Order({ inforUser }) {
           key: "thuCung",
           width: "25%",
           render: (item) => {
+            const parsedItems =
+              typeof item === "string" ? JSON.parse(item) : item;
             return (
               <div>
-                {item?.map((item1) => (
+                {parsedItems?.map((item1) => (
                   <div className="box_item1" key={item1?.idPet}>
                     <div className="">
                       <p style={{ textAlign: "center" }}>{item1?.Pet?.name}</p>
@@ -43,9 +45,11 @@ export default function Status_Order({ inforUser }) {
           key: "thuCung",
           width: "10%",
           render: (item) => {
+            const parsedItems =
+              typeof item === "string" ? JSON.parse(item) : item;
             return (
               <div>
-                {item?.map((item1) => (
+                {parsedItems?.map((item1) => (
                   <div className="box_item1" key={item1?.idPet}>
                     <div className="">
                       <Avatar
@@ -72,9 +76,11 @@ export default function Status_Order({ inforUser }) {
           key: "thuCung",
           width: "10%",
           render: (item) => {
+            const parsedItems =
+              typeof item === "string" ? JSON.parse(item) : item;
             return (
               <div>
-                {item?.map((item1) => (
+                {parsedItems?.map((item1) => (
                   <div className="box_item1" key={item1?.idThuCung}>
                     <div className="">
                       <p style={{ textAlign: "center" }}>{item1?.quantity}</p>
@@ -91,9 +97,11 @@ export default function Status_Order({ inforUser }) {
           key: "thuCung",
           width: "10%",
           render: (item) => {
+            const parsedItems =
+              typeof item === "string" ? JSON.parse(item) : item;
             return (
               <div>
-                {item?.map((item1) => (
+                {parsedItems?.map((item1) => (
                   <div className="box_item1" key={item1?.idThuCung}>
                     <div className="">
                       <p style={{ textAlign: "center" }}>

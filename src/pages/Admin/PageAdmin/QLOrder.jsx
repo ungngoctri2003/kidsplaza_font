@@ -21,7 +21,7 @@ const { confirm } = Modal;
 export default function QLOrder() {
   const [dataOrder, setOrder] = useState([]);
   const [queryOrder, setQueryOrder] = useState("");
-  console.log(dataOrder);
+
   // Tạo một bảng tính mới
   // const workbook = XLSX.utils.book_new();
 
@@ -100,25 +100,25 @@ export default function QLOrder() {
         {
           title: "Tên thú cưng",
           dataIndex: "thuCung",
+          key: "thuCung_name",
           align: "center",
-          key: "thuCung",
           width: "25%",
           render: (item) => {
+            const parsedItems =
+              typeof item === "string" ? JSON.parse(item) : item;
             return (
               <div>
-                {item?.map((item1) => (
+                {parsedItems?.map((item1) => (
                   <div className="box_item1" key={item1?.idPet}>
-                    <div className="">
-                      <p
-                        style={{
-                          textAlign: "center",
-                          margin: "10px 0",
-                          width: "100%",
-                        }}
-                      >
-                        {item1?.Pet?.name}
-                      </p>
-                    </div>
+                    <p
+                      style={{
+                        textAlign: "center",
+                        margin: "10px 0",
+                        width: "100%",
+                      }}
+                    >
+                      {item1?.Pet?.name}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -128,21 +128,21 @@ export default function QLOrder() {
         {
           title: "Số lượng",
           dataIndex: "thuCung",
-          key: "thuCung",
+          key: "thuCung_quantity",
           align: "center",
           width: "8%",
           render: (item) => {
+            const parsedItems =
+              typeof item === "string" ? JSON.parse(item) : item;
             return (
               <div>
-                {item?.map((item1) => (
+                {parsedItems?.map((item1) => (
                   <div
                     className="box_item1"
-                    key={item1?.idThuCung}
+                    key={item1?.idPet}
                     style={{ margin: "10px 0" }}
                   >
-                    <div className="">
-                      <p style={{ textAlign: "center" }}>{item1?.quantity}</p>
-                    </div>
+                    <p style={{ textAlign: "center" }}>{item1?.quantity}</p>
                   </div>
                 ))}
               </div>
@@ -152,23 +152,23 @@ export default function QLOrder() {
         {
           title: "Giá",
           dataIndex: "thuCung",
-          key: "thuCung",
+          key: "thuCung_price",
           align: "center",
           width: "10%",
           render: (item) => {
+            const parsedItems =
+              typeof item === "string" ? JSON.parse(item) : item;
             return (
               <div>
-                {item?.map((item1) => (
+                {parsedItems?.map((item1) => (
                   <div
                     className="box_item1"
-                    key={item1?.idThuCung}
+                    key={item1?.idPet}
                     style={{ margin: "10px 0" }}
                   >
-                    <div className="">
-                      <p style={{ textAlign: "center" }}>
-                        {formatPrice(item1?.Pet?.price)} $
-                      </p>
-                    </div>
+                    <p style={{ textAlign: "center" }}>
+                      {formatPrice(item1?.Pet?.price)} $
+                    </p>
                   </div>
                 ))}
               </div>
@@ -184,42 +184,27 @@ export default function QLOrder() {
       key: "tongTien",
       align: "center",
       render: (text) => <p>{formatPrice(text)}$</p>,
-      with: "5%",
+      width: "5%",
     },
     {
       title: "Trạng thái",
       dataIndex: "status",
       key: "status",
       align: "center",
-      // ellipsis: {
-      //   showTitle: false,
-      // },
       render: (status) => (
-        <div>
-          <div
-            className=""
-            style={
+        <div
+          style={{
+            backgroundColor:
               status === "Đơn hàng đã hủy"
-                ? {
-                    backgroundColor: "red",
-                    borderRadius: "10px",
-                    padding: "5px 0",
-                  }
+                ? "red"
                 : status === "Đã thanh toán"
-                ? {
-                    backgroundColor: "#52D037",
-                    borderRadius: "10px",
-                    padding: "5px 0",
-                  }
-                : {
-                    backgroundColor: "#FFD45C",
-                    borderRadius: "10px",
-                    padding: "5px 0",
-                  }
-            }
-          >
-            <p style={{ color: "#fff", fontWeight: "600" }}>{status}</p>
-          </div>
+                ? "#52D037"
+                : "#FFD45C",
+            borderRadius: "10px",
+            padding: "5px 0",
+          }}
+        >
+          <p style={{ color: "#fff", fontWeight: "600" }}>{status}</p>
         </div>
       ),
     },
@@ -228,13 +213,8 @@ export default function QLOrder() {
       dataIndex: "createdAt",
       key: "createdAt",
       align: "center",
-      ellipsis: {
-        showTitle: false,
-      },
       render: (createdAt) => (
-        <Tooltip placement="topLeft" title={formatDate(createdAt)}>
-          {formatDate(createdAt)}
-        </Tooltip>
+        <Tooltip title={formatDate(createdAt)}>{formatDate(createdAt)}</Tooltip>
       ),
     },
     {
@@ -242,11 +222,8 @@ export default function QLOrder() {
       dataIndex: "Edit",
       key: "Edit",
       align: "center",
-      ellipsis: {
-        showTitle: false,
-      },
-      render: (Edit, record) => (
-        <Flex gap={"10px"} wrap="wrap" justify="center">
+      render: (_, record) => (
+        <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
           <Button
             type="primary"
             style={{ minWidth: "100px" }}
@@ -256,13 +233,13 @@ export default function QLOrder() {
           </Button>
           <Button
             type="primary"
-            style={{ minWidth: "100px" }}
             danger
+            style={{ minWidth: "100px" }}
             onClick={() => showModalCancelOrder(record?.id)}
           >
             Hủy
           </Button>
-        </Flex>
+        </div>
       ),
     },
   ];

@@ -286,7 +286,18 @@ export const updateCategory = (idCategory, name) => {
   }).then((res) => res.json());
 };
 //thêm đơn hàng
+let isOrderInProgress = false; // Biến trạng thái để kiểm soát
+
+// Hàm thêm đơn hàng
 export const insertOrder = (idUser, thuCung, status) => {
+  // Kiểm tra xem có đang tạo đơn hàng hay không
+  if (isOrderInProgress) {
+    console.log("Đơn hàng đang được tạo, vui lòng chờ.");
+    return;
+  }
+
+  isOrderInProgress = true; // Đặt cờ đang tạo đơn hàng
+
   return fetch(api + "users/insertOrder/" + idUser, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -294,7 +305,17 @@ export const insertOrder = (idUser, thuCung, status) => {
       thuCung,
       status,
     }),
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      isOrderInProgress = false; // Đặt lại cờ sau khi hoàn thành
+      return data; // Trả về dữ liệu
+    })
+    .catch((error) => {
+      isOrderInProgress = false; // Đặt lại cờ trong trường hợp lỗi
+      console.error("Lỗi khi thêm đơn hàng:", error);
+      throw error; // Ném lỗi để xử lý ở nơi khác
+    });
 };
 
 export const updateOrder = (idOrder, status) => {
