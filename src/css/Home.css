@@ -3,7 +3,31 @@
   gap: 20px;
   justify-content: space-between;
 }
+.brand_container {
+  text-align: center;
+}
 
+.brand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Khoảng cách giữa các logo */
+  justify-content: center;
+}
+
+.brand_logo {
+  width: 100px; /* Chiều rộng cố định cho container */
+  height: 100px; /* Chiều cao cố định cho container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Đảm bảo hình ảnh không bị tràn */
+}
+
+.brand_logo img {
+  width: 100%; /* Đặt chiều rộng 100% để ảnh bao phủ toàn bộ chiều ngang */
+  height: 100%; /* Đặt chiều cao 100% */
+  object-fit: contain; /* Điều chỉnh để giữ nguyên tỉ lệ của ảnh */
+}
 .brand_container {
   background-color: #f5f5f5;
   padding: 80px 30px;
@@ -12,15 +36,6 @@
   font-size: 40px;
   text-align: center;
   margin: 50px 0;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-}
-
-.brand_logo img {
-  width: 100%;
 }
 
 .banner_content {

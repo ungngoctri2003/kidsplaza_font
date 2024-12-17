@@ -61,22 +61,10 @@ export default function AdminMenu({ dataUser, setInforUser }) {
         <div className="demo-logo-vertical" />
         {!collapsed ? (
           <div className="header_logo_Admin">
-            <div className="header_admin_logo">
-              <Link to="/admin">
-                <img
-                  width={"40px"}
-                  height={"40px"}
-                  src={
-                    process.env.PUBLIC_URL + "/KidsPlaza-Logo-Circle-192.png"
-                  }
-                  alt="Logo"
-                />
-              </Link>
-            </div>
             (
             <Link to="/admin">
               <div className="header_admin_title">
-                <p>KidsPlaza</p>
+                <p>LAPTOP F88</p>
               </div>
             </Link>
             )

@@ -63,7 +63,7 @@ const Home = ({ category, dataUser }) => {
       </div>
       <div className="container">
         <div className="banner_content">
-          <p>Hệ thống mẹ bỉm uy tín nhất Việt Nam</p>
+          <p>Hệ thống laptop uy tín nhất Việt Nam</p>
           <div className="banenr_content_btn">
             <Link to="/shop-all">
               <Button variant="contained" size="medium">
@@ -119,7 +119,7 @@ const Home = ({ category, dataUser }) => {
                         {pet.name}
                         <div style={{ fontSize: 16, fontWeight: "normal" }}>
                           {pet.price
-                            ? `${formatPrice(pet.price)} $`
+                            ? `${formatPrice(pet.price)} Đ`
                             : "Update..."}
                         </div>
                       </div>

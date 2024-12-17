@@ -58,7 +58,7 @@ export default function QLPets() {
       align: "center",
       render: (price) => (
         <Tooltip placement="topLeft" title={price}>
-          {formatPrice(price)} $
+          {formatPrice(price)} Đ
         </Tooltip>
       ),
       width: "10%",

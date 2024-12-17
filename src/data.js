@@ -1,60 +1,68 @@
 export const banner = [
   {
     id: 1,
-    img: require("./img/banner/banner_home_m_i-sap-sinh-t11_4.png"),
+    img: require("./img/banner/09_Juleade1b3c2cae70f8f7f08d65531f5552.jpg"),
   },
   {
     id: 2,
-    img: require("./img/banner/banner_home-bobby-t11.png"),
+    img: require("./img/banner/747x350-Banner-Legion-5-2024-2.jpg"),
   },
   {
     id: 3,
-    img: require("./img/banner/kv_hikid_t11_home_web_698x296.png"),
+    img: require("./img/banner/BACKUP-HP-VICTUS-15-747x350.jpg"),
+  },
+  {
+    id: 4,
+    img: require("./img/banner/CTT12747x350.jpg"),
+  },
+  {
+    id: 5,
+    img: require("./img/banner/Tng-voucher-999k-747x350.jpg"),
   },
 ];
 export const banner_ca = [
   {
     id: 1,
-    img: require("./img/banner_cag/bim-moony-dan-m64-6-11kg-1a_1.jpg"),
+    img: require("./img/banner_cag/pro_poster_9174.jpg"),
     title: "DEAL OF THE WEEK",
     des: "50% OFF on dog treats",
     linkTo: "/milk",
   },
   {
     id: 2,
-    img: require("./img/banner_cag/bo-quan-ao-dai-tay-be-gai-kidsplaza-in-gau-m24t-hong-be-1.jpg"),
+    img: require("./img/banner_cag/pro_poster_8410.jpg"),
     title: "DEAL OF THE WEEK",
     des: "50% OFF on dog treats",
-    linkTo: "/bims",
+    linkTo: "/laptop-cu",
   },
   {
     id: 3,
-    img: require("./img/banner_cag/sua-de-hikid-han-quoc-700g-cho-be-1-9-tuoi-1a.jpg"),
+    img: require("./img/banner_cag/8883_47450_pny_cs1031_256gb_nvme_pcie4_upweb_1.jpg"),
     title: "DEAL OF THE WEEK",
     des: "50% OFF on dog treats",
-    linkTo: "/thoitrangs",
+    linkTo: "/phukien",
   },
 ];
 export const brand = [
   {
     id: 1,
-    img: require("./img/brand/82fcd3_5d50420463db42c9924cb2c11a194935~mv2.webp"),
+    img: require("./img/brand/acer.png"),
   },
   {
     id: 2,
-    img: require("./img/brand/82fcd3_7f2a74423be748dca8cab8d905b857b0~mv2.webp"),
+    img: require("./img/brand/asus.jpg"),
   },
   {
     id: 3,
-    img: require("./img/brand/82fcd3_9c64adc8c55e4de695315a7a25c41f15~mv2.webp"),
+    img: require("./img/brand/dell.png"),
   },
   {
     id: 4,
-    img: require("./img/brand/82fcd3_ae955c036e724d64b58f25347ca6daa0~mv2.webp"),
+    img: require("./img/brand/gaming.png"),
   },
   {
     id: 5,
-    img: require("./img/brand/82fcd3_d1a50a604e7746409627375577693ebd~mv2.webp"),
+    img: require("./img/brand/lenovo.png"),
   },
 ];
 export const category = [

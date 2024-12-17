@@ -7,6 +7,7 @@ import { Row, Col } from "antd";
 import { formatVietnameseToString } from "../componnents/Common/formatVietnameseToString";
 import AddToCartButton from "../componnents/AddToCard";
 import "../css/Detail.css";
+import { formatPrice } from "../componnents/Common/formatPrice";
 export default function Detail() {
   const navigate = useNavigate();
   const handleNavigate = (item) => {
@@ -80,7 +81,7 @@ export default function Detail() {
                 <div className="information_products">
                   <h1 className="title_product">{itemDetails?.name}</h1>
                   <h2>
-                    <strong>Giá:{itemDetails?.price}</strong>
+                    <strong>Giá:{formatPrice(itemDetails?.price)} Đ</strong>
                   </h2>
                   <p className="Quantity_input">
                     <strong>Quantity</strong>
@@ -127,7 +128,7 @@ export default function Detail() {
                     />
                     <div className="ifom">
                       <p>{item?.name}</p>
-                      <p>{item?.price}</p>
+                      <p>{formatPrice(item?.price)} Đ</p>
                     </div>
                   </div>
                 </div>
